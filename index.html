@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Build Websites · Make Money · Use the Right Tools</title>
-  <!-- Font Awesome 5 for icons (optional but used for checkmarks) -->
+  <!-- Font Awesome 5 for icons -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <style>
     * {
@@ -26,7 +26,7 @@
       padding: 0 24px;
     }
 
-    /* header / navigation (clean minimal) */
+    /* header / navigation */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -54,6 +54,11 @@
     .nav-links a {
       text-decoration: none;
       color: #2d3a5e;
+      cursor: pointer;
+    }
+    
+    .nav-links a:hover {
+      color: #1e2b5e;
     }
 
     /* buttons */
@@ -65,6 +70,8 @@
       text-decoration: none;
       transition: all 0.2s ease;
       font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
     }
 
     .btn-outline {
@@ -119,7 +126,7 @@
       flex-wrap: wrap;
     }
 
-    /* intro card / david */
+    /* intro card / kings */
     .intro-card {
       background-color: #eaeef5;
       border-radius: 40px;
@@ -163,7 +170,7 @@
       font-size: 1.2rem;
     }
 
-    .david-placeholder {
+    .kings-placeholder {
       background: #2b3b7c;
       width: 180px;
       height: 180px;
@@ -200,6 +207,7 @@
       box-shadow: 0 15px 30px -10px rgba(0,0,0,0.05);
       transition: transform 0.15s;
       border: 1px solid #eef2f8;
+      cursor: pointer;
     }
 
     .tool-card:hover {
@@ -374,27 +382,27 @@
 <body>
   <div class="container">
 
-    <!-- Simple navigation matching the "I test and recommend" vibe -->
+    <!-- Navigation with clickable links -->
     <nav class="navbar">
-      <span class="logo">📈 earn.tools</span>
+      <span class="logo">earn.tools</span>
       <div class="nav-links">
-        <a href="#">Tools</a>
-        <a href="#">Guide</a>
-        <a href="#">Blog</a>
+        <a onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">Tools</a>
+        <a onclick="document.getElementById('guide').scrollIntoView({behavior: 'smooth'})">Guide</a>
+        <a href="#" onclick="alert('Blog coming soon!'); return false;">Blog</a>
       </div>
     </nav>
 
-    <!-- Hero: Build Websites. Make Money. Use the Right Tools. (exact) -->
+    <!-- Hero section - exactly matching your new image -->
     <div class="hero">
-      <h1>Build Websites. Make Money. Use the Right Tools.</h1>
+      <h1>Build Websites.<br>Make Money. Use the Right Tools.</h1>
       <p>I test and recommend the best tools for beginners who want to start making money online with AI and websites.</p>
       <div class="hero-buttons">
-        <a href="#" class="btn btn-primary">View Recommended Tools</a>
-        <a href="#" class="btn btn-outline">Get Free AI Website Guide</a>
+        <a class="btn btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">View Recommended Tools</a>
+        <a class="btn btn-outline" onclick="document.getElementById('guide').scrollIntoView({behavior: 'smooth'})">Get Free AI Website Guide</a>
       </div>
     </div>
 
-    <!-- Hey, I'm Kings section (exact copy + checkmarks) -->
+    <!-- Hey, I'm Kings section (updated) -->
     <div class="intro-card">
       <div class="intro-text">
         <h2>Hey, I'm Kings.</h2>
@@ -406,79 +414,92 @@
         </div>
       </div>
       <div class="kings-placeholder">
-        <span>👨‍💻</span>
+        <span>👑</span>
       </div>
     </div>
 
-    <!-- My Top Recommended Tools (exactly as in image) -->
-    <h2 class="section-title">My Top Recommended Tools</h2>
+    <!-- TOOLS SECTION - with ID for scrolling -->
+    <h2 class="section-title" id="tools">My Top Recommended Tools</h2>
 
     <div class="tools-grid">
-      <!-- HOSTINGER card -->
-      <div class="tool-card">
+      <!-- HOSTINGER card - opens affiliate link (placeholder for now) -->
+      <div class="tool-card" onclick="window.open('#', '_blank'); alert('Hostinger affiliate link will go here');">
         <div class="tool-name">HOSTINGER</div>
         <ul class="tool-features">
           <li><i class="fas fa-check"></i> Fast & Affordable Hosting</li>
+          <li><i class="fas fa-check"></i> Get Started With Hostinger</li>
         </ul>
-        <a href="#" class="tool-link">Get Started With Hostinger →</a>
+        <span class="tool-link">Learn More →</span>
       </div>
 
       <!-- Canva card -->
-      <div class="tool-card">
+      <div class="tool-card" onclick="window.open('#', '_blank'); alert('Canva affiliate link will go here');">
         <div class="tool-name">Canva</div>
         <ul class="tool-features">
           <li><i class="fas fa-check"></i> Create Designs Easily</li>
+          <li><i class="fas fa-check"></i> Start Designing With Canva</li>
         </ul>
-        <a href="#" class="tool-link">Start Designing With Canva →</a>
+        <span class="tool-link">Learn More →</span>
       </div>
 
       <!-- Namecheap card -->
-      <div class="tool-card">
+      <div class="tool-card" onclick="window.open('#', '_blank'); alert('Namecheap affiliate link will go here');">
         <div class="tool-name">Namecheap</div>
         <ul class="tool-features">
           <li><i class="fas fa-check"></i> Cheap & Reliable Domains</li>
+          <li><i class="fas fa-check"></i> Get Your Domain Today</li>
         </ul>
-        <a href="#" class="tool-link">Get Your Domain Today →</a>
+        <span class="tool-link">Learn More →</span>
       </div>
     </div>
 
-    <!-- What You Can Learn Here (grid with list and free guide) -->
-    <div class="learn-grid">
+    <!-- What You Can Learn Here (with GUIDE section ID) -->
+    <div class="learn-grid" id="guide">
       <!-- left side: bullet list -->
       <div>
         <h2 class="section-title" style="margin-top:0;">What You Can Learn Here:</h2>
         <ul class="learn-list">
-          <li><i class="fas fa-check-circle"></i> ✅ How to build websites using AI</li>
-          <li><i class="fas fa-check-circle"></i> ✅ How to start affiliate marketing</li>
-          <li><i class="fas fa-check-circle"></i> ✅ Tools to help you earn online</li>
-          <li><i class="fas fa-check-circle"></i> ✅ Step-by-step guides for beginners</li>
+          <li><i class="fas fa-check-circle"></i> How to build websites using AI</li>
+          <li><i class="fas fa-check-circle"></i> How to start affiliate marketing</li>
+          <li><i class="fas fa-check-circle"></i> Tools to help you earn online</li>
+          <li><i class="fas fa-check-circle"></i> Step-by-step guides for beginners</li>
         </ul>
       </div>
 
-      <!-- right side: free guide card (exact wording) -->
+      <!-- right side: free guide card -->
       <div class="guide-card">
         <h3>Free Guide:<br>5 AI Prompts That Help You Build a Website in 30 Minutes</h3>
-        <a href="#" class="btn btn-primary" style="background:#1e2b5e; border-color:#1e2b5e;">Download Now</a>
+        <a class="btn btn-primary" style="background:#1e2b5e; border-color:#1e2b5e;" onclick="alert('Download guide will be available soon!'); return false;">Download Now</a>
       </div>
     </div>
 
-    <!-- Stop Guessing. Start Building. section (exact) -->
+    <!-- Stop Guessing. Start Building. section -->
     <div class="final-cta">
       <div>
         <h2>Stop Guessing.<br>Start Building.</h2>
         <p>Use the right tools. Build smart. Earn smart.</p>
       </div>
       <div class="cta-buttons">
-        <a href="#" class="btn btn-white">Explore All Recommended Tools</a>
-        <!-- optional second button to mirror style, but image only shows one. keeping clean -->
+        <a class="btn btn-white" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">Explore All Recommended Tools</a>
       </div>
     </div>
 
-    <!-- small footer (optional but fits) -->
+    <!-- footer - updated to Kings -->
     <div class="footer">
-      © David · honest tool reviews · no scams, just value
+      © Kings · honest tool reviews · no scams, just value
     </div>
 
   </div> <!-- end container -->
+
+  <script>
+    // This makes all tool card links open in new tab when clicked
+    // You can replace the '#' with your actual affiliate links later
+    document.querySelectorAll('.tool-card').forEach(card => {
+      card.addEventListener('click', function() {
+        // When you get real affiliate links, replace '#' with the actual URL
+        // window.open('YOUR_AFFILIATE_LINK_HERE', '_blank');
+      });
+    });
+  </script>
 </body>
-</html>
+  </html>
