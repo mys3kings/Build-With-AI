@@ -1,506 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Build Websites · Make Money · Use the Right Tools</title>
-  <!-- Font Awesome 5 for icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f9fafc;
-      color: #1a1e2b;
-      line-height: 1.5;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* header / navigation */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 0;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #1e2b5e, #2b3b7c);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      font-weight: 500;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #2d3a5e;
-      cursor: pointer;
-    }
-    
-    .nav-links a:hover {
-      color: #1e2b5e;
-    }
-
-    /* buttons */
-    .btn {
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: 40px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      font-size: 0.95rem;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-outline {
-      border: 2px solid #1e2b5e;
-      color: #1e2b5e;
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: #1e2b5e;
-      color: white;
-    }
-
-    .btn-primary {
-      background: #1e2b5e;
-      color: white;
-      border: 2px solid #1e2b5e;
-    }
-
-    .btn-primary:hover {
-      background: #2b3b7c;
-      border-color: #2b3b7c;
-    }
-
-    /* hero section */
-    .hero {
-      text-align: center;
-      padding: 60px 0 30px;
-    }
-
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      max-width: 800px;
-      margin: 0 auto 20px;
-      color: #0d152b;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      color: #2d3a5e;
-      max-width: 700px;
-      margin: 0 auto 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* intro card / kings */
-    .intro-card {
-      background-color: #eaeef5;
-      border-radius: 40px;
-      padding: 48px;
-      margin: 60px 0 40px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .intro-text h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #0d152b;
-    }
-
-    .intro-text p {
-      font-size: 1.2rem;
-      color: #1f2a44;
-      max-width: 550px;
-      margin-bottom: 24px;
-    }
-
-    .check-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 500;
-    }
-
-    .check-item i {
-      color: #1e2b5e;
-      font-size: 1.2rem;
-    }
-
-    .kings-placeholder {
-      background: #2b3b7c;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 4rem;
-      font-weight: 600;
-      box-shadow: 0 20px 30px -10px rgba(0,20,40,0.2);
-    }
-
-    /* tools section heading */
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin: 60px 0 30px;
-      color: #0d152b;
-    }
-
-    /* three column cards (top tools) */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    .tool-card {
-      background: white;
-      border-radius: 32px;
-      padding: 32px;
-      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.05);
-      transition: transform 0.15s;
-      border: 1px solid #eef2f8;
-      cursor: pointer;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 35px -12px rgba(20,40,80,0.15);
-    }
-
-    .tool-name {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #0d152b;
-    }
-
-    .tool-features {
-      list-style: none;
-      margin: 20px 0 28px;
-    }
-
-    .tool-features li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      font-size: 1rem;
-      color: #2d3a5e;
-    }
-
-    .tool-features i {
-      color: #1e2b5e;
-      width: 20px;
-      font-size: 0.9rem;
-    }
-
-    .tool-link {
-      font-weight: 700;
-      color: #1e2b5e;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.2s;
-    }
-
-    .tool-link:hover {
-      border-bottom: 2px solid #1e2b5e;
-    }
-
-    /* what you can learn (two column grid) */
-    .learn-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin: 40px 0 50px;
-    }
-
-    .learn-list {
-      list-style: none;
-    }
-
-    .learn-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-      font-weight: 500;
-    }
-
-    .learn-list i {
-      color: #1e2b5e;
-      font-size: 1.4rem;
-      width: 28px;
-    }
-
-    .guide-card {
-      background: #d9e1ef;
-      border-radius: 36px;
-      padding: 40px;
-    }
-
-    .guide-card h3 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
-
-    .guide-card .btn-primary {
-      background: #0d152b;
-      border-color: #0d152b;
-      margin-top: 24px;
-      padding: 14px 38px;
-      font-size: 1.1rem;
-    }
-
-    /* bottom callout */
-    .final-cta {
-      background: #0d152b;
-      border-radius: 48px;
-      padding: 60px 48px;
-      margin: 60px 0 40px;
-      color: white;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .final-cta h2 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      line-height: 1.2;
-      max-width: 500px;
-    }
-
-    .final-cta p {
-      font-size: 1.2rem;
-      opacity: 0.85;
-      margin: 16px 0 20px;
-      max-width: 400px;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn-white {
-      background: white;
-      color: #0d152b;
-      border: 2px solid white;
-    }
-
-    .btn-white:hover {
-      background: transparent;
-      color: white;
-    }
-
-    .btn-outline-white {
-      border: 2px solid white;
-      color: white;
-      background: transparent;
-    }
-
-    .btn-outline-white:hover {
-      background: white;
-      color: #0d152b;
-    }
-
-    /* footer / tiny */
-    .footer {
-      text-align: center;
-      padding: 30px 0 50px;
-      color: #5b6a89;
-      border-top: 1px solid #dfe5f0;
-    }
-
-    /* Responsive */
-    @media (max-width: 800px) {
-      .hero h1 { font-size: 2.5rem; }
-      .intro-card { flex-direction: column; text-align: center; padding: 32px; }
-      .kings-placeholder { margin-top: 30px; }
-      .tools-grid { grid-template-columns: 1fr; }
-      .learn-grid { grid-template-columns: 1fr; }
-      .final-cta { flex-direction: column; text-align: center; gap: 30px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kings' Affiliate Tools</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        header .cta-btn {
+            background-color: #f59e0b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .tool-card {
+            background: white;
+            padding: 20px;
+            flex: 1 1 280px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .tool-card h3 {
+            color: #1e3a8a;
+        }
+        .tool-card p {
+            margin: 10px 0 20px;
+        }
+        .tool-card a {
+            text-decoration: none;
+            color: white;
+            background-color: #f59e0b;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Navigation with clickable links -->
-    <nav class="navbar">
-      <span class="logo">earn.tools</span>
-      <div class="nav-links">
-        <a onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">Tools</a>
-        <a onclick="document.getElementById('guide').scrollIntoView({behavior: 'smooth'})">Guide</a>
-        <a href="#" onclick="alert('Blog coming soon!'); return false;">Blog</a>
-      </div>
-    </nav>
+<header>
+    <h1>Kings' Affiliate Tools</h1>
+    <p>Build Websites. Make Money. Use the Right Tools.</p>
+    <a href="#tools" class="cta-btn">View Recommended Tools</a>
+</header>
 
-    <!-- Hero section - exactly matching your new image -->
-    <div class="hero">
-      <h1>Build Websites.<br>Make Money. Use the Right Tools.</h1>
-      <p>I test and recommend the best tools for beginners who want to start making money online with AI and websites.</p>
-      <div class="hero-buttons">
-        <a class="btn btn-primary" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">View Recommended Tools</a>
-        <a class="btn btn-outline" onclick="document.getElementById('guide').scrollIntoView({behavior: 'smooth'})">Get Free AI Website Guide</a>
-      </div>
-    </div>
-
-    <!-- Hey, I'm Kings section (updated) -->
-    <div class="intro-card">
-      <div class="intro-text">
-        <h2>Hey, I'm Kings.</h2>
-        <p>I started learning <strong>how to build websites</strong> using AI and free tools.<br>Now I share the <strong>best tools</strong> to help you succeed online.</p>
-        <div class="check-list">
-          <div class="check-item"><i class="fas fa-check-circle"></i> <span><strong>Tools I Actually Use</strong></span></div>
-          <div class="check-item"><i class="fas fa-check-circle"></i> <span><strong>Beginner-Friendly Platforms</strong></span></div>
-          <div class="check-item"><i class="fas fa-check-circle"></i> <span><strong>No Scams. Just Real Value.</strong></span></div>
+<section>
+    <h2 style="text-align:center;">My Top Recommended Tools</h2>
+    <div class="tools">
+        <div class="tool-card">
+            <h3>Hostinger Hosting</h3>
+            <p>Fast, affordable, and beginner-friendly hosting for your first website.</p>
+            <a href="YOUR_HOSTINGER_AFFILIATE_LINK" target="_blank">Get Started</a>
         </div>
-      </div>
-      <div class="kings-placeholder">
-        <span>👑</span>
-      </div>
+        <div class="tool-card">
+            <h3>Canva Design</h3>
+            <p>Create stunning graphics, banners, and social media posts easily.</p>
+            <a href="YOUR_CANVA_AFFILIATE_LINK" target="_blank">Start Designing</a>
+        </div>
+        <div class="tool-card">
+            <h3>Namecheap Domains</h3>
+            <p>Register your domain name and get started online quickly.</p>
+            <a href="YOUR_NAMECHEAP_AFFILIATE_LINK" target="_blank">Get Your Domain</a>
+        </div>
     </div>
+</section>
 
-    <!-- TOOLS SECTION - with ID for scrolling -->
-    <h2 class="section-title" id="tools">My Top Recommended Tools</h2>
+<section style="text-align:center; margin-top:50px;">
+    <h2>Free Resource</h2>
+    <p>Get my free PDF: 5 AI Prompts That Help You Build a Website in 30 Minutes</p>
+    <a href="#" class="cta-btn">Download Free Guide</a>
+</section>
 
-    <div class="tools-grid">
-      <!-- HOSTINGER card - opens affiliate link (placeholder for now) -->
-      <div class="tool-card" onclick="window.open('#', '_blank'); alert('Hostinger affiliate link will go here');">
-        <div class="tool-name">HOSTINGER</div>
-        <ul class="tool-features">
-          <li><i class="fas fa-check"></i> Fast & Affordable Hosting</li>
-          <li><i class="fas fa-check"></i> Get Started With Hostinger</li>
-        </ul>
-        <span class="tool-link">Learn More →</span>
-      </div>
+<footer>
+    <p>© 2026 Kings. All rights reserved. Some links are affiliate links.</p>
+</footer>
 
-      <!-- Canva card -->
-      <div class="tool-card" onclick="window.open('#', '_blank'); alert('Canva affiliate link will go here');">
-        <div class="tool-name">Canva</div>
-        <ul class="tool-features">
-          <li><i class="fas fa-check"></i> Create Designs Easily</li>
-          <li><i class="fas fa-check"></i> Start Designing With Canva</li>
-        </ul>
-        <span class="tool-link">Learn More →</span>
-      </div>
-
-      <!-- Namecheap card -->
-      <div class="tool-card" onclick="window.open('#', '_blank'); alert('Namecheap affiliate link will go here');">
-        <div class="tool-name">Namecheap</div>
-        <ul class="tool-features">
-          <li><i class="fas fa-check"></i> Cheap & Reliable Domains</li>
-          <li><i class="fas fa-check"></i> Get Your Domain Today</li>
-        </ul>
-        <span class="tool-link">Learn More →</span>
-      </div>
-    </div>
-
-    <!-- What You Can Learn Here (with GUIDE section ID) -->
-    <div class="learn-grid" id="guide">
-      <!-- left side: bullet list -->
-      <div>
-        <h2 class="section-title" style="margin-top:0;">What You Can Learn Here:</h2>
-        <ul class="learn-list">
-          <li><i class="fas fa-check-circle"></i> How to build websites using AI</li>
-          <li><i class="fas fa-check-circle"></i> How to start affiliate marketing</li>
-          <li><i class="fas fa-check-circle"></i> Tools to help you earn online</li>
-          <li><i class="fas fa-check-circle"></i> Step-by-step guides for beginners</li>
-        </ul>
-      </div>
-
-      <!-- right side: free guide card -->
-      <div class="guide-card">
-        <h3>Free Guide:<br>5 AI Prompts That Help You Build a Website in 30 Minutes</h3>
-        <a class="btn btn-primary" style="background:#1e2b5e; border-color:#1e2b5e;" onclick="alert('Download guide will be available soon!'); return false;">Download Now</a>
-      </div>
-    </div>
-
-    <!-- Stop Guessing. Start Building. section -->
-    <div class="final-cta">
-      <div>
-        <h2>Stop Guessing.<br>Start Building.</h2>
-        <p>Use the right tools. Build smart. Earn smart.</p>
-      </div>
-      <div class="cta-buttons">
-        <a class="btn btn-white" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">Explore All Recommended Tools</a>
-      </div>
-    </div>
-
-    <!-- footer - updated to Kings -->
-    <div class="footer">
-      © Kings · honest tool reviews · no scams, just value
-    </div>
-
-  </div> <!-- end container -->
-
-  <script>
-    // This makes all tool card links open in new tab when clicked
-    // You can replace the '#' with your actual affiliate links later
-    document.querySelectorAll('.tool-card').forEach(card => {
-      card.addEventListener('click', function() {
-        // When you get real affiliate links, replace '#' with the actual URL
-        // window.open('YOUR_AFFILIATE_LINK_HERE', '_blank');
-      });
-    });
-  </script>
 </body>
   </html>
-  
